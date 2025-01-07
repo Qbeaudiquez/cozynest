@@ -10,5 +10,3 @@ try{
 
     echo "Error : " . $e->getMessage();
 }
-
-echo "bdd chargé";
