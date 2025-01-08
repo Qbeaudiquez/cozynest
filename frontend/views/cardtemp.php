@@ -3,27 +3,27 @@
 <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/config.css">
 <link rel="stylesheet" href="/assets/css/cardArticle.css">
-<article id="cardContainer">
-    <div id="dateContainer">
-        <p id="date">Date</p>
+<article class="cardContainer">
+    <div class="dateContainer">
+        <p class="cardDate">Date</p>
     </div>
-    <div id="aboutContainer">
-        <h3 id="titleCard">Title</h3>
-        <p id="descCard">Description</p>
-        <div id="catCommentLikeContainer">
-            <div id="catContainer">
-                <p id="cat">Quatégorie</p>
+    <div class="aboutContainer">
+        <h3 class="titleCard">Title</h3>
+        <p class="descCard">Description</p>
+        <div class="catCommentLikeContainer">
+            <div class="catContainer">
+                <p class="cat">Quatégorie</p>
             </div>
-            <div id="commentLikeContainer">
-                <div id="commentContainer">
+            <div class="commentLikeContainer">
+                <div class="commentContainer">
                     <?= file_get_contents("/frontend/assets/img/icons/comment.svg")?>
                 </a>
-                    <p id="comment">0</p>
+                    <p class="comment">0</p>
                 </div>
-                <div id="likeContainer">
+                <div class="likeContainer">
                     <?= file_get_contents("/frontend/assets/img/icons/like.svg")?>
                 </a>
-                    <p id="like">0</p>
+                    <p class="like">0</p>
                 </div>
             </div>
         </div>
