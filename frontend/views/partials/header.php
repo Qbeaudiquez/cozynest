@@ -8,10 +8,10 @@
     <div id="navSocialContainer">
         <nav>
             <ul id="navbar">
-                <li><a href="/views/index.php" class="navLink">Accueil</a></li>
-                <li><a href="/views/blog.php" class="navLink">Blog</a></li>
-                <li><a href="/views/about.php" class="navLink">À propos</a></li>
-                <li><a href="/views/contact.php" class="navLink">Contact</a></li>
+                <li><a href="/index.php" class="navLink">Accueil</a></li>
+                <li><a href="/blog.php" class="navLink">Blog</a></li>
+                <li><a href="/about.php" class="navLink">À propos</a></li>
+                <li><a href="/contact.php" class="navLink">Contact</a></li>
             </ul>
         </nav>
         <div id="socialContainer">

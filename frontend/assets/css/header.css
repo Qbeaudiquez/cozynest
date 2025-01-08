@@ -95,8 +95,6 @@
 #heroContainer #navSocialContainer #socialContainer a{
     position: relative;
     fill: var(--third-color);
-    stroke:var(--third-color);
-    stroke-width: 2px;
     transition: var(--main-animation);
 }
 
@@ -140,9 +138,7 @@
 }
 
 #heroContainer #navSocialContainer #socialContainer a:hover{
-    fill: var(--primary-color);
-    stroke: var(--primary-color);
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 /* Mobil Template */

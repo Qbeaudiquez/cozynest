@@ -1,0 +1,84 @@
+#cardContainer{
+    width: 100%;
+    height: 100%;
+    /* background-color: var(--third-color); */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+    border-radius: 8px;
+    box-shadow: var(--main-shadow);
+    overflow: hidden;
+}
+
+
+#cardContainer #dateContainer{
+    width: 100%;
+    background-color: var(--fourth-color);
+    width:fit-content;
+    height: fit-content;
+    padding: 5px;
+    margin: 8px 15px 0 0;
+    border-radius: 5px;
+    box-shadow: var(--main-shadow);
+}
+
+#cardContainer #dateContainer #date{
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+#cardContainer #aboutContainer{
+    width: 100%;
+    background-color: var(--fourth-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px 0 5px 20px;
+}
+
+#cardContainer #aboutContainer #titleCard{
+    font-size: 1.5rem;
+    font-family: var(--second-font);
+}
+
+#cardContainer #aboutContainer #descCard{
+    font-size: 1.2rem;
+}
+
+#cardContainer #aboutContainer #catCommentLikeContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#cardContainer #aboutContainer #catCommentLikeContainer #catContainer{
+    background-color: var(--primary-color);
+    padding: 0 3px;
+    border-radius: 50px;
+}
+
+#cardContainer #aboutContainer #catCommentLikeContainer #catContainer #cat{
+    font-size: 0.7rem;
+}
+
+#cardContainer #aboutContainer #catCommentLikeContainer #commentLikeContainer{
+    display: flex;
+    gap: 10px;
+    margin-right: 20px;
+}
+
+#cardContainer #aboutContainer #catCommentLikeContainer #commentLikeContainer #commentContainer,
+#cardContainer #aboutContainer #catCommentLikeContainer #commentLikeContainer #likeContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+
+#cardContainer #aboutContainer #catCommentLikeContainer #commentLikeContainer #commentContainer #comment,
+#cardContainer #aboutContainer #catCommentLikeContainer #commentLikeContainer #likeContainer #like{
+    font-size: 1.2rem;
+    font-weight: bold;
+}

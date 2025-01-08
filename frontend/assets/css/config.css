@@ -15,6 +15,9 @@
     /* Animation */
     --main-animation: all .2s ease-in-out;
     --slow-animation: all .4s ease-in-out;
+
+    /* Box Shadow */
+    --main-shadow: 3px 3px 10px 0px rgba(0,0,0,0.5);
 }
 
 /* Reset CSS */
