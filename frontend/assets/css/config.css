@@ -1,0 +1,30 @@
+/* Variables */
+
+:root{
+    --primary-color:#F2DFCE;
+    --second-color:#724C4F;
+    --third-color:#40373F;
+    --fourth-color:#D9A78B;
+    --fifth-color:#A67563;
+    --main-font:"Mulish", serif;
+    --second-font:"Merienda", serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    color: var(--third-color);
+    font-family: var(--main-font)
+    
+}
+
+body{
+    background-color: var(--primary-color);
+}
+
+a{
+    color: inherit;
+}

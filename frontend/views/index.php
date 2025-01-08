@@ -2,4 +2,4 @@
 
 require_once('/backend/src/db_connection.php');
 
-echo "<h1>Hello world</h1>";
+require_once('/frontend/views/partials/header.php');
