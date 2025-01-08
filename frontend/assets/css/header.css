@@ -10,19 +10,26 @@
     align-items: center;
 }
 
-#heroContainer #burgerMenu {
-    display: none;
+#heroContainer #burgerMenuContainer{
+    cursor: pointer;
     position: relative;
-    margin-top: 36px;
+    margin-top: 30px;
+    display: none;
+}
+
+#heroContainer #burgerMenuContainer #burgerMenu {
+    position: relative;
+    margin-top: 20px;
     height: 6px;
     width: 40px;
     background-color: var(--third-color);
     border-radius: 50px;
-    cursor: pointer;
+    top: -50%;
+    transform: translateY(50%);
 }
 
-#heroContainer #burgerMenu::before,
-#heroContainer #burgerMenu::after {
+#heroContainer #burgerMenuContainer #burgerMenu::before,
+#heroContainer #burgerMenuContainer #burgerMenu::after {
     content: "";
     position: absolute;
     height: 6px;
@@ -31,11 +38,11 @@
     border-radius: 50px;
 }
 
-#heroContainer #burgerMenu::before {
+#heroContainer #burgerMenuContainer #burgerMenu::before {
     top: -10px;
 }
 
-#heroContainer #burgerMenu::after {
+#heroContainer #burgerMenuContainer #burgerMenu::after {
     top: 10px;
 }
 
@@ -53,8 +60,31 @@
 }
 
 #heroContainer #navSocialContainer #navbar a{
+    position: relative;
     font-size: 24px;
     font-family: var(--second-font);
+    transition: var(--main-animation);
+}
+
+#heroContainer #navSocialContainer #navbar a::before, 
+#heroContainer #navSocialContainer #navbar a::after{
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0%;
+    background-color: var(--primary-color);
+    transition: var(--main-animation);
+    
+}
+
+#heroContainer #navSocialContainer #navbar a::before{
+    right: 0;
+    top: -5px; 
+}
+
+#heroContainer #navSocialContainer #navbar a::after{
+    left: 0;
+    bottom: -5px; 
 }
 
 #navSocialContainer #socialContainer{
@@ -63,9 +93,11 @@
 }
 
 #heroContainer #navSocialContainer #socialContainer a{
+    position: relative;
     fill: var(--third-color);
     stroke:var(--third-color);
     stroke-width: 2px;
+    transition: var(--main-animation);
 }
 
 #heroContainer #titleDescContainer{
@@ -96,30 +128,50 @@
     color: var(--primary-color);
 }
 
+/* Hover effects */
+
+#heroContainer #navSocialContainer #navbar a:hover{
+    color: var(--primary-color);
+}
+
+#heroContainer #navSocialContainer #navbar a:hover::before,
+#heroContainer #navSocialContainer #navbar a:hover::after{
+    width: 100%;
+}
+
+#heroContainer #navSocialContainer #socialContainer a:hover{
+    fill: var(--primary-color);
+    stroke: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* Mobil Template */
+
 @media (max-width: 870px){
     #heroContainer{
         position: relative;
     }
 
-    #heroContainer #burgerMenu{
+    #heroContainer #burgerMenuContainer{
         display: block;
         z-index: 1;
     }
 
-    #heroContainer #burgerMenu.active{
-        transform: rotate(45deg); 
+    #heroContainer #burgerMenuContainer #burgerMenu.active{
+        transform: rotate(135deg);
+        transition: transform .4s ease-in-out;
     }
 
-    #heroContainer #burgerMenu.active::after{
+    #heroContainer #burgerMenuContainer #burgerMenu.active::after{
         top: 0;
         transform: rotate(-90deg); 
     }
 
-    #heroContainer #burgerMenu.active::before{
+    #heroContainer #burgerMenuContainer #burgerMenu.active::before{
         display: none;
     }
 
-    #heroContainer #burgerMenu.active,#heroContainer #burgerMenu.active::after,#heroContainer #burgerMenu.active::before{
+    #heroContainer #burgerMenuContainer #burgerMenu.active,#heroContainer #burgerMenuContainer #burgerMenu.active::after,#heroContainer #burgerMenuContainer #burgerMenu.active::before{
         background-color: var(--primary-color);
     }
 
@@ -131,19 +183,25 @@
         width: 100%;
         background-color: rgba(0, 0, 0, 0.896);
         height: 100vh;
-        display: none;
+        transform: translateX(-100%);
+        
     }
 
-    #heroContainer #navSocialContainer #navbar{
+    #heroContainer #navSocialContainer.active{
+        transform: translateX(0);
+        transition: var(--slow-animation);
+    }
+
+    #heroContainer #navSocialContainer #navbar.active{
         flex-direction: column;
         text-align: center;
     }
 
-    #heroContainer #navSocialContainer #navbar a{
+    #heroContainer #navSocialContainer #navbar a.active{
         color: var(--primary-color);
     }
 
-    #heroContainer #navSocialContainer #socialContainer a{
+    #heroContainer #navSocialContainer #socialContainer a.active{
         fill: var(--primary-color);
         stroke: var(--primary-color);
     }

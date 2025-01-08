@@ -1,14 +1,23 @@
 /* Variables */
 
 :root{
+    /* Colors */
     --primary-color:#F2DFCE;
     --second-color:#724C4F;
     --third-color:#40373F;
     --fourth-color:#D9A78B;
     --fifth-color:#A67563;
+
+    /* Fonts */
     --main-font:"Mulish", serif;
     --second-font:"Merienda", serif;
+
+    /* Animation */
+    --main-animation: all .2s ease-in-out;
+    --slow-animation: all .4s ease-in-out;
 }
+
+/* Reset CSS */
 
 *{
     margin: 0;
@@ -16,15 +25,13 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
-    color: var(--third-color);
-    font-family: var(--main-font)
-    
+    color: inherit;    
 }
+
+/* Init main CSS */
 
 body{
     background-color: var(--primary-color);
-}
-
-a{
-    color: inherit;
+    color: var(--third-color);
+    font-family: var(--main-font)
 }
