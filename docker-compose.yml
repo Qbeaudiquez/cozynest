@@ -2,7 +2,7 @@ services:
   nginx:
     image: nginx:1.22-alpine
     ports:
-      - "8080:80"
+      - "4000:80"
     volumes:
       - ./frontend/views:/frontend/views
       - ./frontend/assets:/frontend/assets
@@ -16,24 +16,38 @@ services:
       - ./frontend/views:/frontend/views
       - ./frontend/assets:/frontend/assets
       - ./backend:/backend
+    depends_on:
+      - mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_DATA_BASE: ${MYSQL_DATA_BASE}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
 
   mysql:
     image: mysql:8
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: blog_hygge
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATA_BASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - dbdata:/var/lib/mysql
-      
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    environment:
-      PMA_HOST: mysql
-      MYSQL_ROOT_PASSWORD: root
+  
+  mongo:
+    image: mongo:7.0.16
+    container_name: mongo
     ports:
-      - "8081:80"
+      - "4002:27017"
+    volumes:
+      - mongo-data:/data/dbdata
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MYSQL_DATA_BASE}
 
 volumes:
   dbdata:
+  mongo-data:
