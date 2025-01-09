@@ -35,18 +35,20 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - dbdata:/var/lib/mysql
+    ports:
+      - "4001:3306"
   
   mongo:
     image: mongo:7.0.16
     container_name: mongo
-    ports:
-      - "4002:27017"
     volumes:
       - mongo-data:/data/dbdata
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
       MONGO_INITDB_DATABASE: ${MYSQL_DATA_BASE}
+    ports:
+      - "4002:27017"
 
 volumes:
   dbdata:
