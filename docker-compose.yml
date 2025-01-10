@@ -49,6 +49,16 @@ services:
       MONGO_INITDB_DATABASE: ${MYSQL_DATA_BASE}
     ports:
       - "4002:27017"
+    
+  mongo-express:
+    image: mongo-express
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongo
+      - ME_CONFIG_MONGODB_PORT=27017
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+    ports:
+      - "8082:8081"
 
 volumes:
   dbdata:
