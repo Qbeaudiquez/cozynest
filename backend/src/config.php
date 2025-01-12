@@ -1,18 +1,24 @@
 <?php
 
-$serveurname = "mysql";
 $username = getenv("MYSQL_USER");
 $password = getenv("MYSQL_PASSWORD");
 $dbname = getenv("MYSQL_DATA_BASE");
 
+
+$servername = "mysql";
+$port = 3306;
+
+
+$dsn = "mysql:host=$servername;port=$port;dbname=$dbname;charset=utf8mb4";
+
 try {
-    $connexion = new PDO(
-        "mysql:host=$serveurname;
-        port=3306;
-        dbname=$dbname", 
-        $username, 
-        $password);
+    
+    $db = new PDO($dsn, $username, $password);
+    
+    
+    echo "Connexion réussie";
 } catch (PDOException $e) {
+    
     echo "Erreur : " . $e->getMessage();
 }
 
