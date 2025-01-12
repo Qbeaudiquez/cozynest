@@ -8,8 +8,9 @@ class Comment{
     private $date;
     private $isValid;
     private $answer;
+    private $articleId;
 
-    public function __construct($db,$id = null,$pseudo,$content,$date,$isValid = 0, $answer = null){
+    public function __construct($db,$id = null,$pseudo,$content,$date,$isValid = 0, $answer = null, $articleId){
         $this->db = $db;
         $this->id = $id;
         $this->pseudo = $pseudo;
@@ -17,12 +18,13 @@ class Comment{
         $this->date = $date;
         $this->isValid = $isValid;
         $this->answer = $answer;
+        $this->articleId = $articleId;
     }
 
     public function save(){
-            $currentdate = date("d.m.y");
-            $statement = $this->db->prepare("INSERT INTO comments (pseudo, content, date, is_valid, answer = null) VALUES (?,?,?,?,?)");
-            $statement->execute([$this->pseudo, $this->content, $currentdate, $this->isValid, $this->answer]);
+            $currentDate = date("Y-m-d");
+            $statement = $this->db->prepare("INSERT INTO comments (pseudo, content, date, is_valid, answer, article_id) VALUES (?,?,?,?,?,?)");
+            $statement->execute([$this->pseudo, $this->content, $currentDate, $this->isValid, $this->answer, $this->articleId]);
             $this->id = $this->db->lastInsertId();
 
     }
@@ -34,7 +36,7 @@ class Comment{
     }
 
     public function addAnswer($answerContent){
-        if($this->answerId !== null){
+        if($this->answer !== null){
             return;
         }
 

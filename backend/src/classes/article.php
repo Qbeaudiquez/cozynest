@@ -16,7 +16,7 @@ class Article{
         $content,
         $date,
         $authorId,
-        $catId
+        $catId,
     ){
         $this->db = $db;
         $this->id = $id;
@@ -46,17 +46,35 @@ class Article{
                 $this->id
             ]);
         }else{
-            
-            $stmt = $this->db->prepare("INSERT INTO articles (title, content, id, date, cat_id) VALUES (?, ?, ?, ?, ?)");
-            $stmt->execute([
+            $currentDate = date("Y-m-d");
+            $statement = $this->db->prepare("INSERT INTO articles (title, content, user_id, date, cat_id) VALUES (?, ?, ?, ?, ?)");
+            $statement->execute([
                 $this->title,
                 $this->content,
                 $this->authorId,
-                $this->date,
+                $currentDate,
                 $this->catId
             ]);
             
             $this->id = $this->db->lastInsertId();
         }
     }
+
+    public function addTag(Tag $tag){
+        $statement = $this->db->prepare("INSERT INTO article_tags (article_id,tag_id) VALUES (?,?)");
+        $statement->execute([$this->id, $tag->getId()]);
+    }
+
+    public function getTags(){
+        $statement = $this->db->prepare("SELECT tags.* FROM tags JOIN article_tags ON tags.id = article_tags.tag_id WHERE article_tags.article_id = ?");
+        $statement->execute([$this->id]);
+        $tags = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $tagTable = [];
+
+        foreach ($tags as $tag){
+            $tagTable[] = new Tag($this->db, $tag["id"], $tag["name"]);
+        }
+        return $tagTable;
+    }
+
 }
