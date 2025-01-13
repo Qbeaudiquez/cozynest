@@ -3,6 +3,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/header.css">
+<link rel="stylesheet" href="/assets/css/config.css">
+<link rel="stylesheet" href="/assets/css/title.css">
+<?php
+require_once('/backend/src/config.php');
+require_once('/backend/sql/dataArticles.php');
+?>
 <header id="heroContainer">
     <div id="burgerMenuContainer" class=""><div id="burgerMenu"></div></div>
     <div id="navSocialContainer">

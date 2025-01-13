@@ -124,6 +124,8 @@
     border-radius: 5px;
     background-color: var(--fifth-color);
     color: var(--primary-color);
+    cursor: pointer;
+    transition: var(--main-animation);
 }
 
 /* Hover effects */
@@ -141,6 +143,9 @@
     transform: scale(1.2);
 }
 
+#heroContainer #heroCta:hover{
+    filter: brightness(0.9);
+}
 /* Mobil Template */
 
 @media (max-width: 870px){

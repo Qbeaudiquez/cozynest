@@ -38,3 +38,7 @@ body{
     color: var(--third-color);
     font-family: var(--main-font)
 }
+
+a{
+    display: block;
+}
