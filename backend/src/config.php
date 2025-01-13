@@ -15,8 +15,6 @@ try {
     
     $db = new PDO($dsn, $username, $password);
     
-    
-    echo "Connexion réussie";
 } catch (PDOException $e) {
     
     echo "Erreur : " . $e->getMessage();
