@@ -64,6 +64,7 @@
     font-size: 24px;
     font-family: var(--second-font);
     transition: var(--main-animation);
+    cursor: pointer;
 }
 
 #heroContainer #navSocialContainer #navbar a::before, 
@@ -79,12 +80,35 @@
 
 #heroContainer #navSocialContainer #navbar a::before{
     right: 0;
-    top: -5px; 
+    top: -5px;
 }
 
 #heroContainer #navSocialContainer #navbar a::after{
     left: 0;
     bottom: -5px; 
+}
+
+#heroContainer #navSocialContainer #navbar .blogCtaContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+#heroContainer #navSocialContainer #navbar .blogLinkContainer{
+    height: 0;
+    overflow: hidden;
+    transition: var(--main-animation);
+    position: absolute;
+    transform: translateX(5px);
+}
+
+#heroContainer #navSocialContainer #navbar .blogLinkContainer.active{
+    height: fit-content;
+    background-color: var(--primary-color);
+    padding: 5px;
+    border-radius: 4px;
+    margin-top: 10px;
 }
 
 #navSocialContainer #socialContainer{
@@ -130,13 +154,17 @@
 
 /* Hover effects */
 
-#heroContainer #navSocialContainer #navbar a:hover{
+#heroContainer #navSocialContainer #navbar .navLink:hover{
     color: var(--primary-color);
 }
 
-#heroContainer #navSocialContainer #navbar a:hover::before,
-#heroContainer #navSocialContainer #navbar a:hover::after{
+#heroContainer #navSocialContainer #navbar .navLink:hover::before,
+#heroContainer #navSocialContainer #navbar .navLink:hover::after{
     width: 100%;
+}
+
+#heroContainer #navSocialContainer #navbar .blogLinkContainer:hover{
+    color: var(--third-color);
 }
 
 #heroContainer #navSocialContainer #socialContainer a:hover{
@@ -146,6 +174,7 @@
 #heroContainer #heroCta:hover{
     filter: brightness(0.9);
 }
+
 /* Mobil Template */
 
 @media (max-width: 870px){

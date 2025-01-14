@@ -7,15 +7,28 @@
 <link rel="stylesheet" href="/assets/css/title.css">
 <?php
 require_once('/backend/src/config.php');
-require_once('/backend/sql/dataArticles.php');
+require_once('/backend/sql/allData.php');
+$categories = getTableData($db, 'categories');
 ?>
 <header id="heroContainer">
-    <div id="burgerMenuContainer" class=""><div id="burgerMenu"></div></div>
+    <div id="burgerMenuContainer"><div id="burgerMenu"></div></div>
     <div id="navSocialContainer">
         <nav>
             <ul id="navbar">
                 <li><a href="/index.php" class="navLink">Accueil</a></li>
-                <li><a href="/blog.php" class="navLink">Blog</a></li>
+                <li ><a class="navLink blogLink">
+                    <div class="blogCtaContainer">
+                        <p>Blog</p>
+                        <?= file_get_contents("/frontend/assets/img/icons/blogDown.svg")?>
+                    </div>
+                    <div class="blogLinkContainer">
+                        <ul>
+                            <?php foreach ($categories as $category): ?>
+                                <li><a href="blog.php?category=<?= $category['name']?>#down"><?= $category['name']?></a></li>
+                            <?php endforeach ?>
+                        </ul>
+                    </div>
+                </a></li>
                 <li><a href="/about.php" class="navLink">À propos</a></li>
                 <li><a href="/contact.php" class="navLink">Contact</a></li>
             </ul>
@@ -37,7 +50,8 @@ require_once('/backend/sql/dataArticles.php');
         <br>sur <span>Cozy Nest</span></h1>
         <p id="heroDesc">Prenez une pause, installez-vous confortablement et plongez dans un univers chaleureux dédié au bien-être et à la simplicité.</p>
     </div>
-    <button id="heroCta">Explorez l'univers hygge</button>
+    <a href="#down"><button id="heroCta">Explorez l'univers hygge</button></a>
 </header>
 
 <script src="/assets/js/header/burgerMenu.js"></script>
+<script src="/assets/js/header/blogMenu.js"></script>

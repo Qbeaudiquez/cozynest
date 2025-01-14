@@ -1,14 +1,23 @@
+
 <link rel='stylesheet' href='/assets/css/cardArticle.css'>
 <?php
-$comment = file_get_contents('/frontend/assets/img/icons/comment.svg');
-$like = file_get_contents('/frontend/assets/img/icons/like.svg');
-$view = file_get_contents('/frontend/assets/img/icons/view.svg');
+
+// Join data script
+require_once('/backend/sql/dataCountComment.php');
+
+// Icons variable
+$commentIcon = file_get_contents('/frontend/assets/img/icons/comment.svg');
+$likeIcon = file_get_contents('/frontend/assets/img/icons/like.svg');
+$viewIcon = file_get_contents('/frontend/assets/img/icons/view.svg');
+
 $idArticle = 0;
+
 foreach($articles as $article){
+    $commentCount = getCommentCount($db, $article['id'], $validity = null);
     $idArticle ++;
     echo "
-    
-    <article class='cardContainer div$idArticle'>
+    <article style='background-image:url(\"../../assets/img/backArticle/$idArticle.png\");' class='cardContainer div$idArticle'>
+    <a href='article.php?id={$article['id']}'>
     <div class='dateContainer'>
         <div class='datebutton'>
             <p class='date'>{$article['date']}</p>
@@ -24,18 +33,20 @@ foreach($articles as $article){
         </div>
         <div class='infoContainer'>
             <div class='commentContainer containers'>
-                $comment
-                <p class='comment'>10</p>
+                $commentIcon
+                <p class='comment'>$commentCount</p>
             </div>
             <div class='likeContainer containers'>
-                $like
+                $likeIcon
                 <p class='like'>30</p>
             </div>
             <div class='viewContainer containers'>
-                $view
+                $viewIcon
                 <p class='view'>150</p>
             </div>
         </div>
     </div>
-</article>";
+    </a>
+</article>
+";
 }

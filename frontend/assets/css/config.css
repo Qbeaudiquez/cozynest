@@ -33,10 +33,12 @@
 
 /* Init main CSS */
 
-body{
-    background-color: var(--primary-color);
+body {
+    position: relative;
+    background-color: #f2dfcec6;
     color: var(--third-color);
-    font-family: var(--main-font)
+    font-family: var(--main-font);
+    scroll-behavior: smooth;
 }
 
 a{
