@@ -1,5 +1,6 @@
-<?php
 
+<div class="mainArticlesContainer" id="down"></div>
+<?php
 $page = basename($_SERVER['PHP_SELF']);
 $displayAll = false;
 if(isset($_GET['all'])){
@@ -9,13 +10,14 @@ if(isset($_GET['all'])){
 
 <?php if(!$displayAll): ?>
     <?php if($page !== 'index.php' && isset($_GET['category'])){
-        $category = $_GET['category'];
-        $articlesBest = getArticlesByNb($db,3, 'category', $category);
-        $articlesLast = getArticlesByNb($db,4, 'category', $category);
+        $category =  $_GET['category'];
+        $categoryUrl = '&category=' . $category;
+        $articlesBest = getArticlesByNb($db, 'category', 3, $category);
+        $articlesLast = getArticlesByNb($db, 'category', 4, $category);
     }else{
-        
-        $articlesBest = getArticlesByNb($db, 3, "last");
-        $articlesLast = getArticlesByNb($db, 4, "last");
+        $categoryUrl = null;
+        $articlesBest = getArticlesByNb($db, "last", 3);
+        $articlesLast = getArticlesByNb($db, "last", 4);
     }
 
     ?>
@@ -24,7 +26,7 @@ if(isset($_GET['all'])){
     <?php $articles = $articlesBest ?>
 
 
-    <div id='down' class="sectionTitleContainer">
+    <div class="sectionTitleContainer">
         <div class="stroke"></div>
         <h2>Les articles les plus appréciés</h2>
         <div class="stroke"></div>
@@ -47,18 +49,20 @@ if(isset($_GET['all'])){
 
     <div class="articlesContainerBento articlesContainer">
         <?php require('/frontend/views/partials/articleCard.php');?>
-                <a href="blog.php?all=1" class="moreArticle div5">
+                <a href="blog.php?all=1<?= $categoryUrl?>#down" class="moreArticle div5">
                     <p>Plus d'article</p>
                     <?= file_get_contents("/frontend/assets/img/icons/moreArticle.svg")?>
                 </a>
     </div>
-<?php elseif($displayAll && isset($_GET['category'])): ?>
-    <?php $articles = getArticlesByNb($db,100000, 'category', $category);
-    require('/frontend/views/partials/articleCard.php'); 
-    ?>
-<?php else: ?>
-    <?php $articles = $articlesBest = getArticlesByNb($db);
-        require('/frontend/views/partials/articleCard.php');   
-    ?>
+<?php elseif($displayAll): ?>
+        <?php
+            if(isset($_GET['category'])){
+                $category = $_GET['category'];
+                $articles = getArticlesByNb($db,'category',$nbArticle = 100000, $category);
+            }else{
+                $articles = getArticlesByNb($db,'last');
+            }            
+            require('/frontend/views/partials/articleCard.php'); 
+        ?>       
 <?php endif ?>
-
+</div>

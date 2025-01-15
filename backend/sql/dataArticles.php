@@ -1,6 +1,6 @@
 <?php
 
-function getArticlesByNb($db,$nbArticle = 100000, $type = null, $category = null) {
+function getArticlesByNb($db, $type = null,$nbArticle = 100000, $category = null) {
     $query = null;
 
     if ($type === 'last') {
