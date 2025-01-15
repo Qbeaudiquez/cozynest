@@ -20,7 +20,7 @@
 .articlesContainerBento .div4 { grid-area: 2 / 2 / 4 / 3; }
 .articlesContainerBento .div5 { grid-area: 3 / 1 / 4 / 2; }
 
-.articlesContainerBento .moreArticle{
+.moreArticle{
     background-color: var(--fifth-color);
     border-radius: 6px;
     display: flex;
@@ -29,6 +29,7 @@
     padding: 0 20px;
     cursor: pointer;
     transition: var(--main-animation);
+    min-height: 50px;
 }
 
 .articlesContainerBest .cardContainer{
@@ -130,7 +131,7 @@
     transform: scale(0.98);
 }
 
-.articlesContainer .moreArticle:hover{
+.moreArticle:hover{
     filter:brightness(1.1);
     transform: scale(1.02);
 }
@@ -151,8 +152,8 @@
         width: 80%;
     }
 
-    .articlesContainer .moreArticle.div5{
-        width: 70%;
+    .moreArticle.div5{
+        width: 80%;
         padding: 15px;
         margin-top: 30px;
     }

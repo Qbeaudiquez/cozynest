@@ -1,5 +1,5 @@
-
-<div class="mainArticlesContainer" id="down"></div>
+<link rel="stylesheet" href="/assets/css/displayArticlesCard.css">
+<div class="mainArticlesContainer" id="down">
 <?php
 $page = basename($_SERVER['PHP_SELF']);
 $displayAll = false;
@@ -47,13 +47,17 @@ if(isset($_GET['all'])){
         <div class="stroke"></div>
     </div>
 
+    <?php if($page === 'index.php'): ?>
     <div class="articlesContainerBento articlesContainer">
+    <?php endif ?>
         <?php require('/frontend/views/partials/articleCard.php');?>
                 <a href="blog.php?all=1<?= $categoryUrl?>#down" class="moreArticle div5">
                     <p>Plus d'article</p>
                     <?= file_get_contents("/frontend/assets/img/icons/moreArticle.svg")?>
                 </a>
+    <?php if($page === 'index.php'): ?>
     </div>
+    <?php endif ?>
 <?php elseif($displayAll): ?>
         <?php
             if(isset($_GET['category'])){

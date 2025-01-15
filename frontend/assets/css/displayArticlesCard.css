@@ -1,3 +1,12 @@
+.mainArticlesContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 30px 120px;
+
+}
+
+
 .sectionTitleContainer{
     width: 100%;
     display: flex;
@@ -13,4 +22,14 @@
     background-color: var(--third-color);
     margin: 0 20px;
     border-radius: 10px;
+}
+
+@media (max-width: 870px){
+    .mainArticlesContainer{
+        align-items: center;
+        margin: 30px 60px;
+    }
+    .sectionTitleContainer .stroke{
+        display: none;
+    }
 }
