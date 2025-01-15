@@ -76,7 +76,7 @@
 }
 
 .cardContainer .aboutContainer{
-    background-image: url('../../assets/img/backgroud.png');
+    background-image: url('../../assets/img/backgroudAboutCard.png');
     height: 80px;
     display: flex;
     justify-content: space-between;

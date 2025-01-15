@@ -42,9 +42,11 @@ function getArticlesByNb($db, $type = null,$nbArticle = 100000, $category = null
 
 function getArticleById($db, $id){
     $statement = $db->prepare(
-        "SELECT *
-        FROM articles
-        WHERE id = :id");
+        "SELECT a.*, c.name AS category 
+        FROM articles a 
+        JOIN categories c ON a.cat_id = c.id 
+        WHERE a.id = :id 
+        ORDER BY a.date DESC");
         $statement->bindParam(':id', $id, PDO::PARAM_INT);
     $statement->execute();
 
