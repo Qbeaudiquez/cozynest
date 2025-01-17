@@ -1,0 +1,103 @@
+.dashbordContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    padding: 2%;
+}
+
+.dashbordContainer .dashbordContainerLeft{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    background-color: var(--fourth-color);
+    gap: 50px;
+    padding: 0 3%;
+    border-radius: 8px;
+}
+
+.dashbordContainer .dashbordContainerLeft .dashbordTitle{
+    font-family: var(--second-font);
+    font-size: 26px;
+}
+
+.dashbordContainer .dashbordContainerLeft .dashbordLinkContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.dashbordContainer .dashbordContainerLeft .dashbordLinkContainer span{
+    font-weight: bold;
+}
+
+.dashbordContainer .dashbordContainerLeft .dashbordLinkContainer .dashbordLink{
+    padding: 8px;
+    transition: var(--main-animation);
+    width: fit-content;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.dashbordContainer .dashbordContainerLeft .dashbordLinkContainer .dashbordLink.active{
+    color: var(--primary-color);
+}
+
+.dashbordContainer .dashbordContainerRight{
+    width: 80%;
+    height: 100%;
+    padding-left: 20px;
+}
+
+.dashbordContainer .dashbordContainerRight .userInfoLocateContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column
+}
+
+.dashbordContainer .dashbordContainerRight .userInfoLocateContainer .userInfoContainer{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+}
+
+.dashbordContainer .dashbordContainerRight .userInfoLocateContainer .userInfoContainer .imgUser{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--fourth-color);
+}
+
+.dashbordContainer .dashbordContainerRight .userInfoLocateContainer .userInfoContainer .username{
+    font-weight: bold;
+}
+
+.dashbordContainer .dashbordContainerRight .userInfoLocateContainer .userInfoContainer .role{
+    font-size: 12px;
+}
+
+.dashbordContainer .dashbordContainerRight .userInfoLocateContainer .locateInfoContainer .path{
+    font-size: 12px;
+}
+    
+.dashbordContainer .dashbordContainerRight .display{
+    display: none;
+    
+}
+
+.dashbordContainer .dashbordContainerRight .display.active{
+    width: 100%;
+    display: flex;  
+}
+
+
+
+.dashbordContainer .dashbordContainerLeft .dashbordLinkContainer .dashbordLink:hover{
+    background-color: var(--third-color);
+    color: var(--primary-color);
+}

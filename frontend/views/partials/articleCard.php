@@ -6,9 +6,8 @@
 require_once('/backend/sql/dataCountComment.php');
 
 // Icons variable
-$commentIcon = file_get_contents('/frontend/assets/img/icons/comment.svg');
-$likeIcon = file_get_contents('/frontend/assets/img/icons/like.svg');
-$viewIcon = file_get_contents('/frontend/assets/img/icons/view.svg');
+$commentIcon = include('/frontend/assets/img/icons/comment.svg');
+$viewIcon = include('/frontend/assets/img/icons/view.svg');
 
 $idArticle = 0;
 
@@ -17,7 +16,7 @@ foreach($articles as $article){
     $idArticle ++;
     echo "
     <article style='background-image:url(\"../../assets/img/backArticle/$idArticle.png\");' class='cardContainer div$idArticle'>
-    <a href='article.php?id={$article['id']}'>
+    <a href='article.php?id={$article['id']}#down'>
     <div class='dateContainer'>
         <div class='datebutton'>
             <p class='date'>{$article['date']}</p>
@@ -35,10 +34,6 @@ foreach($articles as $article){
             <div class='commentContainer containers'>
                 $commentIcon
                 <p class='comment'>$commentCount</p>
-            </div>
-            <div class='likeContainer containers'>
-                $likeIcon
-                <p class='like'>30</p>
             </div>
             <div class='viewContainer containers'>
                 $viewIcon

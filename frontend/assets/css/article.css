@@ -49,6 +49,7 @@
     align-items: start;
     padding: 10px;
     gap: 30px;
+    justify-content: space-between;
 }
 
 .articleContainer .aboutArticleContainer .categoryContainer{
@@ -59,12 +60,12 @@
     font-size: 12px;
 }
 
-.articleContainer .aboutArticleContainer .commentLikeViewCntainer{
+.articleContainer .aboutArticleContainer .commentViewCntainer{
     display: flex;
     gap: 5px;
 }
 
-.articleContainer .aboutArticleContainer .commentLikeViewCntainer .infoContainer{
+.articleContainer .aboutArticleContainer .commentViewCntainer .infoContainer{
     display: flex;
     gap: 2px;
     align-items: center;

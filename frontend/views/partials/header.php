@@ -18,7 +18,7 @@ $categories = getTableData($db, 'categories');
                 <li ><a class="navLink blogLink">
                     <div class="blogCtaContainer">
                         <p>Blog</p>
-                        <?= file_get_contents("/frontend/assets/img/icons/blogDown.svg")?>
+                        <?php include('/frontend/assets/img/icons/blogDown.svg')?>
                     </div>
                     <div class="blogLinkContainer">
                         <ul>
@@ -34,13 +34,13 @@ $categories = getTableData($db, 'categories');
         </nav>
         <div id="socialContainer">
             <a href="" class="socialLink">
-            <?= file_get_contents("/frontend/assets/img/icons/Instagram.svg")?>
+            <?php include('/frontend/assets/img/icons/Instagram.svg')?>
             </a>
             <a href="" class="socialLink">
-            <?= file_get_contents("/frontend/assets/img/icons/Pinterest.svg")?>
+            <?php include("/frontend/assets/img/icons/Pinterest.svg")?>
             </a>
             <a href="" class="socialLink">
-            <?= file_get_contents("/frontend/assets/img/icons/TikTok.svg")?>
+            <?php include("/frontend/assets/img/icons/TikTok.svg")?>
             </a>
         </div>
     </div>

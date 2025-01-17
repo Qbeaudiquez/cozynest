@@ -1,0 +1,74 @@
+.mainContainer{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainContainer .imgContainer{
+    width: 60%;
+    height: 100%;
+    background-image: url('../img/backgroudArticle.png');
+}
+
+.mainContainer .formTilteContainer{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.mainContainer .formTilteContainer .title{
+    font-family: var(--second-font);
+    font-size: 26px;
+    font-weight: normal;
+}
+
+.mainContainer .formTilteContainer .title span{
+    font-weight: bold;
+}
+
+.mainContainer .formTilteContainer .formContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+}
+
+.mainContainer .formTilteContainer .formContainer .inputText{
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    border-bottom: 1px solid var(--third-color);
+    padding: 8px;
+    border-radius:0 0 0 6px;
+    color: var(--third-color);
+}
+
+
+.mainContainer .formTilteContainer .formContainer .inputText:focus{
+    outline: none;
+}
+
+.mainContainer .formTilteContainer .formContainer .inputText::placeholder{
+    color: var(--third-color);
+}
+
+.mainContainer .formTilteContainer .formContainer .inputBtn{
+    padding: 8px;
+    border: none;
+    background-color: var(--fourth-color);
+    color: var(--primary-color);
+    margin-top: 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--main-animation);
+}
+
+.mainContainer .formTilteContainer .formContainer .inputBtn:hover{
+    background-color: var(--fifth-color);
+}

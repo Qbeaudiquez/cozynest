@@ -13,7 +13,7 @@ if(isset($_GET['id'])){
     $article = getArticleById($db, $id);
     $articleCount = getCommentCount($db, $id,'valid');
     echo 
-        "<article class='articleContainer'>
+        "<article class='articleContainer' id='down'>
             <h2 class='articleTitle'>{$article['title']}</h2>
             <div class='imgArticleContainer'>
                 <img src='/assets/img/backArticle/3.png' alt='' class='imgArticle'>
@@ -26,14 +26,10 @@ if(isset($_GET['id'])){
                 <div class='categoryContainer'>
                     <p class='category'>{$article['category']}</p>
                 </div>
-                <div class='commentLikeViewCntainer'>
+                <div class='commentViewCntainer'>
                     <div class='commentContainer infoContainer'>
                         $commentIcon
                         <p class='comment'>$articleCount</p>
-                    </div>
-                    <div class='likeContainer infoContainer'>
-                        $likeIcon
-                        <p class='like'>30</p>
                     </div>
                     <div class='viewContainer infoContainer'>
                         $viewIcon

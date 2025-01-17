@@ -152,6 +152,8 @@
     transition: var(--main-animation);
 }
 
+
+
 /* Hover effects */
 
 #heroContainer #navSocialContainer #navbar .navLink:hover{
@@ -234,5 +236,11 @@
     #heroContainer #navSocialContainer #socialContainer a.active{
         fill: var(--primary-color);
         stroke: var(--primary-color);
+    }
+    #heroContainer #navSocialContainer #socialContainer svg{
+        fill: var(--primary-color);
+        stroke: var(--primary-color);
+        width: 20px;
+        height: 20px;
     }
 }
