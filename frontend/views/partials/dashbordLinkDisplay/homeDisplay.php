@@ -1,8 +1,12 @@
 <?php
 require_once('/backend/sql/dataArticles.php');
 require_once('/backend/sql/allData.php');
+require_once('/backend/nosql/dataViewCount.php');
+require_once('/backend/sql/dataCountComment.php');
 $lastArticles = getArticlesByNb($db);
 $comments = getTableData($db, 'comments');
+$allViews = getTotalViews($dbMangoConnect);
+$allComments = getCommentCount($db);
 ?>
 
 <link rel="stylesheet" href="/assets/css/dashbordLinkDisplay/homeDisplay.css">
@@ -31,8 +35,8 @@ $comments = getTableData($db, 'comments');
         <div class="infoContainer">
             <div class="head">
                 <div class="titleNbContainer">
-                    <h3 class="title">Vue</h3>
-                    <p class="nb">1500</p>
+                    <h3 class="title">Vues</h3>
+                    <p class="nb"><?=$allViews?></p>
                 </div>
                 <?php include('/frontend/assets/img/icons/view.svg')?>
             </div>
@@ -47,7 +51,7 @@ $comments = getTableData($db, 'comments');
         <div class="head">
             <div class="titleNbContainer">
                 <h3 class="title">Commentaires</h3>
-                <p class="nb">10</p>
+                <p class="nb"><?=$allComments?></p>
             </div>
             <?php include('/frontend/assets/img/icons/article.svg')?>
         </div>

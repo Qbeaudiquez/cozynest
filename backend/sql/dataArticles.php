@@ -48,7 +48,7 @@ function getArticleById($db, $id){
         WHERE a.id = :id 
         ORDER BY a.date DESC");
         $statement->bindParam(':id', $id, PDO::PARAM_INT);
-    $statement->execute();
+        $statement->execute();
 
         return $statement->fetch(PDO::FETCH_ASSOC);
 }

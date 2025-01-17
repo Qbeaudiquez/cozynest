@@ -1,10 +1,4 @@
 <?php
-require_once('/backend/src/config.php');
-
-require_once('/backend/src/classes/article.php');
-
-
-
 function getTableData($db, $tableName) {
     $statement = $db->prepare("SHOW TABLES LIKE :tableName");
     $statement->execute([':tableName' => $tableName]);

@@ -4,19 +4,21 @@
 
 // Join data script
 require_once('/backend/sql/dataCountComment.php');
+require_once('/backend/nosql/dataViewCount.php');
 
 // Icons variable
-$commentIcon = include('/frontend/assets/img/icons/comment.svg');
-$viewIcon = include('/frontend/assets/img/icons/view.svg');
-
-$idArticle = 0;
+$commentIcon = file_get_contents('/frontend/assets/img/icons/comment.svg');
+$viewIcon = file_get_contents('/frontend/assets/img/icons/view.svg');
+$divArticle = 0;
 
 foreach($articles as $article){
-    $commentCount = getCommentCount($db, $article['id'], $validity = null);
-    $idArticle ++;
+    $articleId = $article['id'];
+    $commentCount = getCommentCount($db, $articleId, $validity = null);
+    $divArticle ++;
+    $viewsCount = getViewArticle($dbMangoConnect, $articleId);
     echo "
-    <article style='background-image:url(\"../../assets/img/backArticle/$idArticle.png\");' class='cardContainer div$idArticle'>
-    <a href='article.php?id={$article['id']}#down'>
+    <article style='background-image:url(\"../../assets/img/backArticle/$articleId.png\");' class='cardContainer div$divArticle'>
+    <a href='article.php?id=$articleId#down'>
     <div class='dateContainer'>
         <div class='datebutton'>
             <p class='date'>{$article['date']}</p>
@@ -37,7 +39,7 @@ foreach($articles as $article){
             </div>
             <div class='viewContainer containers'>
                 $viewIcon
-                <p class='view'>150</p>
+                <p class='view'>$viewsCount</p>
             </div>
         </div>
     </div>

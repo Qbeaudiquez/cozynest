@@ -27,11 +27,10 @@ $mongoPassword = getenv("MONGO_INITDB_ROOT_PASSWORD");
 $mongoUser = getenv("MONGO_INITDB_ROOT_USERNAME");
 
 try {
-    $manager = new MongoDB\Driver\Manager("mongodb://$mongoUser:$mongoPassword@$mongoHost:$mongoPort");
+    $dbMangoConnect = new MongoDB\Driver\Manager("mongodb://$mongoUser:$mongoPassword@$mongoHost:$mongoPort");
 
 } catch (MongoDB\Driver\Exception\Exception $e) {
     echo "Erreur de connexion à MongoDB : " . $e->getMessage();
 }
-
 
 ?>
