@@ -1,8 +1,9 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/config.css">
-
+<?php
+require_once('/backend/sql/dataArticles.php');
+require_once('/backend/nosql/dataViewCount.php');
+require_once('/backend/sql/dataComment.php');
+require_once('/backend/sql/dataCategories.php')
+?>
 <link rel="stylesheet" href="/assets/css/dashbordDisplay.css">
 
 <div class="dashbordContainer">
@@ -31,6 +32,7 @@
             </div>
         </div>
         <?php require_once('/frontend/views/partials/dashbordLinkDisplay/homeDisplay.php')?>
+        <?php require_once('/frontend/views/partials/dashbordLinkDisplay/articleDisplay.php')?>
     </div>
         
 </div>

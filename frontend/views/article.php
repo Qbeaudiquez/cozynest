@@ -1,22 +1,24 @@
-<?php require_once('/frontend/views/partials/header.php'); ?>
-<?php require_once('/backend/sql/dataArticles.php');?>
-<?php require_once('/backend/sql/dataCountComment.php');?>
+<?php require_once('/frontend/views/partials/header.php'); 
+require_once('/backend/sql/dataArticles.php');
+require_once('/backend/sql/dataComment.php');
+require_once('/backend/nosql/dataViewCount.php');
+?>
 <link rel="stylesheet" href="/assets/css/article.css">
 <?php
 // Icons variable
 $commentIcon = file_get_contents('/frontend/assets/img/icons/comment.svg');
-$likeIcon = file_get_contents('/frontend/assets/img/icons/like.svg');
 $viewIcon = file_get_contents('/frontend/assets/img/icons/view.svg');
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];
     $article = getArticleById($db, $id);
     $articleCount = getCommentCount($db, $id,'valid');
+    $viewsCount = getViewArticle($dbMangoConnect, $id);
     echo 
         "<article class='articleContainer' id='down'>
             <h2 class='articleTitle'>{$article['title']}</h2>
             <div class='imgArticleContainer'>
-                <img src='/assets/img/backArticle/3.png' alt='' class='imgArticle'>
+                <img src='/assets/img/backArticle/$id.png' alt='' class='imgArticle'>
             </div>
             <div class='descArticleContainer'>
                 <p class='descArticle'>{$article['description']}</p>
@@ -33,7 +35,7 @@ if(isset($_GET['id'])){
                     </div>
                     <div class='viewContainer infoContainer'>
                         $viewIcon
-                        <p class='view'>250</p>
+                        <p class='view'>$viewsCount</p>
                     </div>
                 </div>
             </div>

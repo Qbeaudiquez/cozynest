@@ -1,8 +1,4 @@
 <?php
-require_once('/backend/sql/dataArticles.php');
-require_once('/backend/sql/allData.php');
-require_once('/backend/nosql/dataViewCount.php');
-require_once('/backend/sql/dataCountComment.php');
 $lastArticles = getArticlesByNb($db);
 $comments = getTableData($db, 'comments');
 $allViews = getTotalViews($dbMangoConnect);
@@ -10,7 +6,7 @@ $allComments = getCommentCount($db);
 ?>
 
 <link rel="stylesheet" href="/assets/css/dashbordLinkDisplay/homeDisplay.css">
-<div class="homeDisplay active display">
+<div class="homeDisplay display">
     <div class="articlesViewsContainer">
         <div class="infoContainer">
             <div class="head">

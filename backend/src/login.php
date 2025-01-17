@@ -9,6 +9,7 @@ function login($db, $username, $password){
         
         $_SESSION['user'] = $loginData['pseudo'];
         $_SESSION['role'] = $loginData['role_id'];
+        $_SESSION['id'] = $loginData['id'];
         return true;
     }
     return false;
