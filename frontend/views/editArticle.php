@@ -29,9 +29,10 @@ require_once('/backend/sql/dataArticles.php');
     <div class="answerContainer">
         <p class="answer">Article modifié</p>
         <a href="admin.php">Retour</a>
-        <h4><?= $title?></h4>
-        <p><?= $content?></p>
-        <p><?= $desc?></p>
+        <?= var_dump($_POST)?>
+        <form action="article.php?id=<?=$_POST['editArticleId']?>#down" method="post">
+            <input type="submit" value="Voir l'article">
+        </form>
 <?php else :?>
     <div class="answerContainer">
         <p class="answer">Aucun article n'a été selectionné</p>

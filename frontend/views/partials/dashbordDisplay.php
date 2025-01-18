@@ -16,6 +16,7 @@ require_once('/backend/sql/dataCategories.php')
             <li class="dashbordLink users" data-display="users" data-path="Utilisateurs"><span>U</span>tilisateurs</li>
             <li class="dashbordLink setting" data-display="setting" data-path="Paramètres"><span>P</span>aramètres</li>
         </ul>
+        <a href="index.php" class="backMainPage">Retour à la page d'accueil</a>
     </div>
     <div class="dashbordContainerRight">
         <div class="userInfoLocateContainer">

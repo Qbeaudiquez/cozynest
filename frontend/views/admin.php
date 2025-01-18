@@ -1,5 +1,8 @@
 <?php 
-session_start();
+if(!isset($_SESSION)){
+    session_start();
+}
+
 require_once('/backend/src/config.php'); 
 require_once('/backend/src/login.php');
 require_once('/backend/sql/allData.php');

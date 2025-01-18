@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <link rel="stylesheet" href="/assets/css/config.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,6 +47,9 @@ $categories = getTableData($db, 'categories');
             <?php include("/frontend/assets/img/icons/TikTok.svg")?>
             </a>
         </div>
+        <?php if(isset($_SESSION['role']) && $_SESSION['role'] === 1):?>
+        <a href="admin.php">Dashbord</a>
+        <?php endif ?>
     </div>
     <div id="titleDescContainer">
         <h1 id="heroTitle">Bienvenue 
