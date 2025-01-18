@@ -67,7 +67,6 @@ class Article{
 
             // Save picture
             if(isset($file) && $file['picture']['error'] === UPLOAD_ERR_OK){
-                echo "rentré";
                 $uploadDir = '/frontend/assets/img/backArticle/';
                 $ext = ".png";
                 $uploadFile = $uploadDir . $articleId . $ext;

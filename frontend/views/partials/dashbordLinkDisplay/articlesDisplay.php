@@ -6,9 +6,9 @@ $articles = getTableData($db,'articles')
 
 <div class="articlesDisplay display" id="articles">
     <form action="admin.php" method="post" enctype="multipart/form-data">
-        <input type="text" name="title" id="title" placeholder="Titre">
-        <textarea name="content" id="content" placeholder="Contenue ..."></textarea>
-        <input type="text" name="desc" id="desc" placeholder="Description">
+        <input type="text" name="title" id="title" placeholder="Titre" requiered>
+        <textarea name="content" id="content" placeholder="Contenue ..." requiered></textarea>
+        <input type="text" name="desc" id="desc" placeholder="Description" requiered>
         <select name="category" id="category">
             <?php foreach($categories as $category):?>
                 <option value="<?= $category['name']?>"><?= $category['name']?></option>
@@ -23,15 +23,16 @@ $articles = getTableData($db,'articles')
 <div class="articlesContainer">
     <?php foreach($articles as $article):?>
         <div class="article">
-            <h4 class="titleArtivle"><?=$article['title']?></h4>
+            <h4 class="titleArticle"><?=$article['title']?></h4>
             <p class="descArticle"><?=$article['description']?></p>
-            <form action="admin.php" method="post">
-                <input type="text" name="deleteArticleId" id="deleteBtn" value="<?=$article['id']?>" hidden>
-                <input type="submit" value="Supprimer">
+            <form action="admin.php" method="post" class='deleteArticleContainer'>
+                <input type="hidden" name="deleteArticleId" class="deleteArticleData" value="<?=$article['id']?>">
+                <input type="submit" value="Supprimer" class="deleteArticleBtn">
             </form>
-            <a href="editArticle.php">
-                <button class='buttonEditArticle' data-article-id='<?=$article['id']?>'>Modifier</button>
-            </a>
+            <form action="editArticle.php" method="post">
+                <input type="hidden" name="editArticleId" value="<?=$article['id']?>">
+                <input type="submit" name="editArticleIdBtn" value="Modifier">
+            </form>
         </div>
     <?php endforeach?>
 

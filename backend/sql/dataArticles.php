@@ -52,3 +52,11 @@ function getArticleById($db, $id){
 
         return $statement->fetch(PDO::FETCH_ASSOC);
 }
+
+function getCountArticle($db){
+    $statement = $db->prepare(
+        "SELECT COUNT(*) AS total
+        FROM articles");
+    $statement->execute();
+    return $statement->fetch(PDO::FETCH_ASSOC)['total'];
+}

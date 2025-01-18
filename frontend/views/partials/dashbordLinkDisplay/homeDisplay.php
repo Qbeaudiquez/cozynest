@@ -3,6 +3,7 @@ $lastArticles = getArticlesByNb($db);
 $comments = getTableData($db, 'comments');
 $allViews = getTotalViews($dbMangoConnect);
 $allComments = getCommentCount($db);
+$allArticles = getCountArticle($db);
 ?>
 
 <link rel="stylesheet" href="/assets/css/dashbordLinkDisplay/homeDisplay.css">
@@ -12,7 +13,7 @@ $allComments = getCommentCount($db);
             <div class="head">
                 <div class="titleNbContainer">
                     <h3 class="title">Articles</h3>
-                    <p class="nb">10</p>
+                    <p class="nb"><?= $allArticles ?></p>
                 </div>
                 <?php include('/frontend/assets/img/icons/comment.svg')?>
             </div>
