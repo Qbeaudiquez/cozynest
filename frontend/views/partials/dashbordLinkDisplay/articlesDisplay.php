@@ -5,7 +5,7 @@ $categories = getTableData($db, 'categories');
 $articles = getTableData($db,'articles')
 ?>
 
-<div class="articlesDisplay display active" id="articles">
+<div class="articlesDisplay display" id="articles">
     <div class="createArticleContainer">
         <h4 class="createArticleTitle">Créer un nouvel article</h4>
         <form action="admin.php" method="post" enctype="multipart/form-data" class="createArticleForm">

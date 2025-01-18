@@ -1,6 +1,8 @@
 <?php
+    require_once('/backend/sql/dataCategories.php');
 
-
+    $categoryName = $_POST['editCategory'];
+    $idCategory = getIdByNameCategory($db,$categoryName);
     $idArticle = $_POST['editArticleId'];
     $title = htmlspecialchars(trim($_POST['editTitle']));
     $content = htmlspecialchars(trim($_POST['editContent']));
@@ -9,7 +11,8 @@
     $query = "UPDATE articles
         SET title = :title,
             content = :content,
-            description = :desc
+            description = :desc,
+            cat_id = :cat_id
         WHERE id = :idArticle";
 
     $statement = $db->prepare($query);
@@ -18,7 +21,8 @@
         ':title' => $title,
         ':content' => $content,
         ':desc' => $desc,
-        ':idArticle' => $idArticle
+        ':idArticle' => $idArticle,
+        ':cat_id' => $idCategory
     ]);
 
     $file = $_FILES;
