@@ -13,9 +13,10 @@ require_once('/backend/sql/allData.php');
     exit();
 }
     
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['userLogin'])) {
     $username = htmlspecialchars(trim($_POST['userLogin']));
     $password = $_POST['passwordLogin'];
+    unset($_POST);
 
     if (login($db, $username, $password)) {
         include('admin.php');
@@ -29,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 if(!isset($_SESSION['role'])){
     require('/frontend/views/partials/loginDisplay.html');
 }
-    
 
 
 ?>
+

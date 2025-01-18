@@ -10,11 +10,11 @@ require_once('/backend/sql/dataCategories.php')
     <div class="dashbordContainerLeft">
         <h2 class="dashbordTitle">Cozynest</h2>
         <ul class="dashbordLinkContainer">
-            <li class="dashbordLink home active"><span>H</span>ome</li>
-            <li class="dashbordLink articles"><span>A</span>rticles</li>
-            <li class="dashbordLink comments"><span>C</span>ommentaires</li>
-            <li class="dashbordLink users"><span>U</span>tilisateurs</li>
-            <li class="dashbordLink setting"><span>P</span>aramètres</li>
+            <li class="dashbordLink home active" data-display="home" data-path="Home"><span>H</span>ome</li>
+            <li class="dashbordLink articles" data-display="articles" data-path="Articles"><span>A</span>rticles</li>
+            <li class="dashbordLink comments" data-display="comments" data-path="Commentaires"><span>C</span>ommentaires</li>
+            <li class="dashbordLink users" data-display="users" data-path="Utilisateurs"><span>U</span>tilisateurs</li>
+            <li class="dashbordLink setting" data-display="setting" data-path="Paramètres"><span>P</span>aramètres</li>
         </ul>
     </div>
     <div class="dashbordContainerRight">
@@ -28,11 +28,16 @@ require_once('/backend/sql/dataCategories.php')
             </div>
             <div class="locateInfoContainer">
                 <h3 class="location">Dashbord</h3>
-                <p class="path">/home</p>
+                <p class="path">/Home</p>
             </div>
         </div>
         <?php require_once('/frontend/views/partials/dashbordLinkDisplay/homeDisplay.php')?>
-        <?php require_once('/frontend/views/partials/dashbordLinkDisplay/articleDisplay.php')?>
+        <?php require_once('/frontend/views/partials/dashbordLinkDisplay/articlesDisplay.php')?>
+        <?php require_once('/frontend/views/partials/dashbordLinkDisplay/comentsDisplay.php')?>
+        <?php require_once('/frontend/views/partials/dashbordLinkDisplay/usersDisplay.php')?>
+        <?php require_once('/frontend/views/partials/dashbordLinkDisplay/settingDisplay.php')?>
     </div>
         
 </div>
+
+<script src="../assets/js/selectDashbord.js"></script>

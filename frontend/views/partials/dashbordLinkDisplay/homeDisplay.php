@@ -6,7 +6,7 @@ $allComments = getCommentCount($db);
 ?>
 
 <link rel="stylesheet" href="/assets/css/dashbordLinkDisplay/homeDisplay.css">
-<div class="homeDisplay display">
+<div class="homeDisplay display active" id="home">
     <div class="articlesViewsContainer">
         <div class="infoContainer">
             <div class="head">

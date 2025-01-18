@@ -19,6 +19,7 @@
     border-radius: 8px;
 }
 
+
 .dashbordContainer .dashbordContainerLeft .dashbordTitle{
     font-family: var(--second-font);
     font-size: 26px;
@@ -87,12 +88,13 @@
     
 .dashbordContainer .dashbordContainerRight .display{
     display: none;
+    transition: var(--main-animation);
     
 }
 
 .dashbordContainer .dashbordContainerRight .display.active{
     width: 100%;
-    display: flex;  
+    display: flex;
 }
 
 

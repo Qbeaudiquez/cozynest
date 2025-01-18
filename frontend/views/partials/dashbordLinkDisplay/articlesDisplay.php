@@ -3,7 +3,7 @@ require_once('/backend/src/classes/articleClass.php');
 $categories = getTableData($db, 'categories');
 ?>
 
-<div class="display active">
+<div class="articlesDisplay display" id="articles">
     <form action="admin.php" method="post" enctype="multipart/form-data">
         <input type="text" name="title" id="title" placeholder="Titre">
         <textarea name="content" id="content" placeholder="Contenue ..."></textarea>

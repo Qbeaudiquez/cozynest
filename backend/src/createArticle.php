@@ -1,6 +1,6 @@
 <?php
 
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
+if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])){
 
     $title = $_POST['title'];
     $content = $_POST['content'];
