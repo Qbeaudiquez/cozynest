@@ -61,7 +61,6 @@ class Article{
 
                 $this->dbMangoConnect->executeBulkWrite("$mongoDb.$mongoCollection",$bulkWrite);
                 
-                echo "Done !";
             } catch (MongoDB\Driver\Exception\Exception $e) {
                 echo "Error MongoDB : " . $e->getMessage();
             }

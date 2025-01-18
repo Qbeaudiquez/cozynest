@@ -44,5 +44,3 @@ if(isset($_GET['id'])){
     echo'Article Inconue';
 }
 ?>
-<button id="button">hello</button>
-<script src="../assets/js/deleteArticle.js"></script>

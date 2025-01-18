@@ -1,7 +1,6 @@
 const links = document.querySelectorAll(".dashbordLink")
 const displays = document.querySelectorAll(".display")
 const path = document.querySelector('.path')
-console.log(path)
 
 
 links.forEach(function(link){
@@ -19,8 +18,6 @@ links.forEach(function(link){
 
         const dataPath = link.getAttribute('data-path')
         const newPath = "/" + dataPath
-
-        console.log(newPath)
 
         path.textContent = newPath
 

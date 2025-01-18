@@ -1,5 +1,4 @@
 <?php
-session_start();
 function login($db, $username, $password){
     $statement = $db->prepare("SELECT * FROM user WHERE pseudo = :pseudo");
     $statement->execute(['pseudo' => $username]);
