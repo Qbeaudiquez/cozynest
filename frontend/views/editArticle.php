@@ -21,9 +21,9 @@ $categories = getTableData($db, 'categories');
     ?>
     <form action="editArticle.php" method="post" enctype="multipart/form-data" class="editForm">
         <img src="../assets/img/backArticle/<?= $idArticle?>.png" alt="">
-        <input type="text" name="editTitle" class="editInput" value="<?= $article['title'] ?>" requiered>
-        <textarea name="editContent" class="editInput editContent" requiered><?= $article['content'] ?></textarea>
-        <input type="text" name="editDesc" class="editInput" value="<?= $article['description'] ?>" requiered>
+        <input type="text" name="editTitle" class="editInput" value="<?= $article['title'] ?>" required>
+        <textarea name="editContent" class="editInput editContent" required><?= $article['content'] ?></textarea>
+        <input type="text" name="editDesc" class="editInput" value="<?= $article['description'] ?>" required>
         <select name="editCategory" class="editCategory editInput editBtn">
             <?php foreach($categories as $category):?>
                 <option value="<?= $category['name']?>"><?= $category['name']?></option>

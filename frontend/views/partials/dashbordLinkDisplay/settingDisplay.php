@@ -1,6 +1,6 @@
 <?php $categories = getTableData($db, 'categories') ?>
 
-<div class="settingDisplay display active" id="setting">
+<div class="settingDisplay display" id="setting">
    <div class="catContainer">
       <div class="existsCatContainer">
          <?php foreach($categories as $categorie):?>
@@ -10,7 +10,7 @@
             ?>
             <form action="admin.php" method="post">
                <label for="editCategory">Nom de la catégorie : </label>
-               <input type="text" name="editCategory" id="editCategory" value="<?= $categoryName?>">
+               <input type="text" name="editCategory" id="editCategory" value="<?= $categoryName?>" required>
                <input type="hidden" name="categoryId" value="<?= $categoryId?>">
                <input type="submit" value="Modifier">
             </form>
@@ -26,7 +26,7 @@
 
       <form action="admin.php" method="post">
          <label for="newCategory">Nouvelle catégorie : </label>
-         <input type="text" name="newCategory" id="newCategory">
+         <input type="text" name="newCategory" id="newCategory" required>
          <input type="submit" value="Créer">
       </form>
    </div>

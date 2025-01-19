@@ -48,8 +48,8 @@ if(isset($_GET['id'])){
         <div class="answerContainer">
             <h3 class="answerTitle">Laisser un commantaire !</h3>
             <form action="article.php?id=<?= $id?>" method="post">
-                <input type="text" name="pseudo" placeholder="Votre pseudo" requiered>
-                <textarea name="commentContent" requiered></textarea>
+                <input type="text" name="pseudo" placeholder="Votre pseudo" required>
+                <textarea name="commentContent" required></textarea>
                 <input type="submit" value="Valider">
             </form>
         </div>

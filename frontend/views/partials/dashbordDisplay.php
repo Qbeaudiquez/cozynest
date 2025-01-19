@@ -2,7 +2,13 @@
 require_once('/backend/sql/dataArticles.php');
 require_once('/backend/nosql/dataViewCount.php');
 require_once('/backend/sql/dataComment.php');
-require_once('/backend/sql/dataCategories.php')
+require_once('/backend/sql/dataCategories.php');
+if(isset($_SESSION['role'])){
+    $roleId = $_SESSION['role'];
+    $userName = $_SESSION['user'];
+    $userRole = getRoleNameById($db,$roleId);
+}
+
 ?>
 <link rel="stylesheet" href="/assets/css/dashbordDisplay.css">
 
@@ -23,8 +29,8 @@ require_once('/backend/sql/dataCategories.php')
             <div class="userInfoContainer">
                 <div class="imgUser"></div>
                 <div class="usernameRoleContainer">
-                    <p class="username">Nom utilisateur</p>
-                    <p class="role">Administrateur</p>
+                    <p class="username"><?= $userName?></p>
+                    <p class="role"><?= $userRole?></p>
                 </div>
             </div>
             <div class="locateInfoContainer">

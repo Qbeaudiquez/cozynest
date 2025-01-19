@@ -6,6 +6,7 @@ if(!isset($_SESSION)){
 require_once('/backend/src/config.php'); 
 require_once('/backend/src/login.php');
 require_once('/backend/sql/allData.php');
+require_once('/backend/sql/dataRole.php');
 ?>
 <script src="/assets/js/redirectionPage.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">

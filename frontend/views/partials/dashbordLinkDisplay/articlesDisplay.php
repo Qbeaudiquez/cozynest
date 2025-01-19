@@ -9,15 +9,15 @@ $articles = getTableData($db,'articles')
     <div class="createArticleContainer">
         <h4 class="createArticleTitle">Créer un nouvel article</h4>
         <form action="admin.php" method="post" enctype="multipart/form-data" class="createArticleForm">
-        <input type="text" name="title" class="createTitle createInput" placeholder="Titre" requiered>
-        <textarea name="content" class="createContent createInput" placeholder="Contenue ..." requiered rows="10"></textarea>
-        <input type="text" name="desc" class="createDesc createInput" placeholder="Description" requiered>
+        <input type="text" name="title" class="createTitle createInput" placeholder="Titre" required>
+        <textarea name="content" class="createContent createInput" placeholder="Contenue ..." required rows="10"></textarea>
+        <input type="text" name="desc" class="createDesc createInput" placeholder="Description" required>
         <select name="category" id="category" class="createCategory createInput">
             <?php foreach($categories as $category):?>
                 <option value="<?= $category['name']?>"><?= $category['name']?></option>
             <?php endforeach?>
         </select>
-        <input type="file" name="picture" id="picture" accept="image/*" requiered class="createInput">
+        <input type="file" name="picture" id="picture" accept="image/*" required class="createInput">
         <input type="submit" value="teste" class="createSubmit createInput">
     </form>
     </div>
