@@ -7,7 +7,7 @@ $allCountArticles = getCountArticle($db);
 ?>
 
 <link rel="stylesheet" href="/assets/css/dashbordLinkDisplay/homeDisplay.css">
-<div class="homeDisplay display active" id="home">
+<div class="homeDisplay display" id="home">
     <div class="articlesViewsContainer">
         <div class="infoContainer">
             <div class="head">
