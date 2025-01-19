@@ -1,9 +1,9 @@
 <?php
 $lastArticles = getArticlesByNb($db);
 $comments = getTableData($db, 'comments');
-$allViews = getTotalViews($dbMangoConnect);
-$allComments = getCommentCount($db);
-$allArticles = getCountArticle($db);
+$allCountViews = getTotalViews($dbMangoConnect);
+$allCountComments = getCommentCount($db);
+$allCountArticles = getCountArticle($db);
 ?>
 
 <link rel="stylesheet" href="/assets/css/dashbordLinkDisplay/homeDisplay.css">
@@ -13,7 +13,7 @@ $allArticles = getCountArticle($db);
             <div class="head">
                 <div class="titleNbContainer">
                     <h3 class="title">Articles</h3>
-                    <p class="nb"><?= $allArticles ?></p>
+                    <p class="nb"><?= $allCountArticles ?></p>
                 </div>
                 <?php include('/frontend/assets/img/icons/comment.svg')?>
             </div>
@@ -33,7 +33,7 @@ $allArticles = getCountArticle($db);
             <div class="head">
                 <div class="titleNbContainer">
                     <h3 class="title">Vues</h3>
-                    <p class="nb"><?=$allViews?></p>
+                    <p class="nb"><?=$allCountViews?></p>
                 </div>
                 <?php include('/frontend/assets/img/icons/view.svg')?>
             </div>
@@ -48,7 +48,7 @@ $allArticles = getCountArticle($db);
         <div class="head">
             <div class="titleNbContainer">
                 <h3 class="title">Commentaires</h3>
-                <p class="nb"><?=$allComments?></p>
+                <p class="nb"><?=$allCountComments?></p>
             </div>
             <?php include('/frontend/assets/img/icons/article.svg')?>
         </div>
@@ -59,8 +59,8 @@ $allArticles = getCountArticle($db);
             <?php foreach($comments as $comment):?>
                 <?php if($comment['is_valid'] === 0):?>
                     <div class="commentContainer">
-                        <p class="content"><?=$comment['content']?></p>
-                        <p class="creatAt"><?=$comment['date']?></p>
+                        <h3 class="content">Pseudo : <?=$comment['pseudo']?></h3>
+                        <p class="creatAt">Commentaire : <?=$comment['content']?></p>
                     </div>
                 <?php endif ?>
             <?php endforeach?>
