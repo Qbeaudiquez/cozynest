@@ -17,8 +17,7 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY ./frontend /frontend
 COPY ./backend /backend
 
-# Exposer le port 80 (Nginx)
-EXPOSE 8080
+EXPOSE 80
 
 # Lancer Nginx et PHP-FPM
 USER root
