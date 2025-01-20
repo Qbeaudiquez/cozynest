@@ -7,7 +7,7 @@ if($_SESSION){
 }
 ?>
 
-<div class="userDisplay display active" id="users">
+<div class="userDisplay display" id="users">
     <div class="connectedUserContainer">
         <div class="pseudoEmailContainer">
             <h3 class="connectedUserPseudo"><?= $user['pseudo']?></h3>

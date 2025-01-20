@@ -1,4 +1,3 @@
-
 <link rel='stylesheet' href='/assets/css/cardArticle.css'>
 <?php
 
@@ -20,7 +19,7 @@ foreach($articles as $article){
 
     echo "
     <article style='background-image:url(\"../../assets/img/backArticle/$articleId.png\");' class='cardContainer div$divArticle'>
-    <a href='article.php?id=$articleId#down'>
+    <a href='article.php?id=$articleId#down' class='incView' data-article-id='$articleId'>
     <div class='dateContainer'>
         <div class='datebutton'>
             <p class='date'>{$article['date']}</p>
@@ -49,3 +48,4 @@ foreach($articles as $article){
 </article>
 ";
 }
+?>

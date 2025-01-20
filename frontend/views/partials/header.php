@@ -1,7 +1,7 @@
 <?php
 session_start();
 ?>
-
+<script src="/assets/js/addView.js" defer></script>
 <link rel="stylesheet" href="/assets/css/config.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

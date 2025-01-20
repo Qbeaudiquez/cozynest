@@ -10,7 +10,7 @@
             ?>
             <form action="admin.php" method="post">
                <label for="editCategory">Nom de la catégorie : </label>
-               <input type="text" name="editCategory" id="editCategory" value="<?= $categoryName?>" required>
+               <input type="text" name="editCategory" class="editCategory" value="<?= $categoryName?>" required>
                <input type="hidden" name="categoryId" value="<?= $categoryId?>">
                <input type="submit" value="Modifier">
             </form>
