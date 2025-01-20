@@ -1,36 +1,48 @@
 <?php
 
-$username = getenv("MYSQL_USER");
-$password = getenv("MYSQL_PASSWORD");
-$dbname = getenv("MYSQL_DATA_BASE");
+// Connexion MySQL avec JawsDB
+$jawsdb_url = getenv("JAWSDB_URL");
+if ($jawsdb_url) {
+    // Parse l'URL de la base de données JawsDB
+    $parsed_url = parse_url($jawsdb_url);
 
+    $username = $parsed_url['user'];
+    $password = $parsed_url['pass'];
+    $dbname = ltrim($parsed_url['path'], '/');
+    $servername = $parsed_url['host'];
+    $port = $parsed_url['port'];
 
-$servername = "mysql";
-$port = 3306;
+    // DSN pour MySQL
+    $dsn = "mysql:host=$servername;port=$port;dbname=$dbname;charset=utf8mb4";
 
-
-$dsn = "mysql:host=$servername;port=$port;dbname=$dbname;charset=utf8mb4";
-
-try {
-    
-    $db = new PDO($dsn, $username, $password);
-    
-} catch (PDOException $e) {
-    
-    echo "Erreur : " . $e->getMessage();
+    try {
+        $db = new PDO($dsn, $username, $password);
+    } catch (PDOException $e) {
+        echo "Erreur de connexion MySQL : " . $e->getMessage();
+    }
+} else {
+    echo "La variable d'environnement JAWSDB_URL n'est pas définie.";
 }
 
-$mongoHost = 'mongo';
-$mongoPort = '27017';
-$mongoDbName = getenv("MONGO_INITDB_ROOT_USERNAME");
-$mongoPassword = getenv("MONGO_INITDB_ROOT_PASSWORD");
-$mongoUser = getenv("MONGO_INITDB_ROOT_USERNAME");
+// Connexion MongoDB avec MONGODB_URI
+$mongoUri = getenv("MONGODB_URI");
+if ($mongoUri) {
+    // Parse l'URL de la base de données MongoDB
+    $parsed_mongo_url = parse_url($mongoUri);
 
-try {
-    $dbMangoConnect = new MongoDB\Driver\Manager("mongodb://$mongoUser:$mongoPassword@$mongoHost:$mongoPort");
+    $mongoUser = $parsed_mongo_url['user'];
+    $mongoPassword = $parsed_mongo_url['pass'];
+    $mongoHost = $parsed_mongo_url['host'];
+    $mongoPort = $parsed_mongo_url['port'];
+    $mongoDbName = ltrim($parsed_mongo_url['path'], '/');
 
-} catch (MongoDB\Driver\Exception\Exception $e) {
-    echo "Erreur de connexion à MongoDB : " . $e->getMessage();
+    try {
+        $dbMongoConnect = new MongoDB\Driver\Manager("mongodb://$mongoUser:$mongoPassword@$mongoHost:$mongoPort/$mongoDbName");
+    } catch (MongoDB\Driver\Exception\Exception $e) {
+        echo "Erreur de connexion MongoDB : " . $e->getMessage();
+    }
+} else {
+    echo "La variable d'environnement MONGODB_URI n'est pas définie.";
 }
 
 ?>
