@@ -1,7 +1,4 @@
 <?php
-require_once('/backend/src/config.php');
-require_once('/backend/nosql/saveView.php');
-
 // Ajouter les en-têtes CORS
 header("Access-Control-Allow-Origin: https://cozynest-59f6b70b330d.herokuapp.com");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
@@ -15,6 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
 // Indiquer que la réponse est au format JSON
 header('Content-Type: application/json');
+
+require_once('/backend/src/config.php');
+require_once('/backend/nosql/saveView.php');
 
 $data = json_decode(file_get_contents('php://input'), true);
 
