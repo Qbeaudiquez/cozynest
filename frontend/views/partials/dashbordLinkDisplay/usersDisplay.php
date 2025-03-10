@@ -1,10 +1,10 @@
 <?php
-/*require_once('/backend/sql/dataUser.php');
+require_once('/backend/sql/dataUser.php');
 if($_SESSION){
     $userId = $_SESSION['id'];
     $user = getUserById($db, $userId);
     $hashedPw = $user['password'];
-}*/
+}
 ?>
 
 <div class="userDisplay display" id="users">

@@ -21,5 +21,6 @@
         </div>
     <?php endforeach ?>
 <?php require_once('/backend/src/manageComment.php') ?>
-</div>
+
 <?php endif?>
+</div>
