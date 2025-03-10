@@ -19,7 +19,7 @@ class Comment{
 
     public function save($articleId){
             $currentDate = date("Y-m-d");
-            $statement = $this->db->prepare("INSERT INTO comments (pseudo, content, date, article_id) VALUES (?,?,?,?)");
+            $statement = $this->db->prepare("INSERT INTO comments (pseudo, content, create_at, article_id) VALUES (?,?,?,?)");
             $statement->execute([
                 $this->pseudo, 
                 $this->content, 
