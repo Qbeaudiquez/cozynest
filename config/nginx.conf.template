@@ -24,7 +24,7 @@ http {
         add_header X-XSS-Protection "1; mode=block";
         add_header X-Content-Type-Options "nosniff";
 
-        # En-têtes CORS
+        # En-têtes CORS globaux
         add_header 'Access-Control-Allow-Origin' 'https://cozynest-59f6b70b330d.herokuapp.com';
         add_header 'Access-Control-Allow-Methods' 'POST, GET, OPTIONS';
         add_header 'Access-Control-Allow-Headers' 'Content-Type, Authorization';
@@ -48,7 +48,7 @@ http {
             include fastcgi_params;
             fastcgi_pass 127.0.0.1:9000;
             fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-            
+
             # En-têtes CORS pour /backend/
             add_header 'Access-Control-Allow-Origin' 'https://cozynest-59f6b70b330d.herokuapp.com';
             add_header 'Access-Control-Allow-Methods' 'POST, GET, OPTIONS';
