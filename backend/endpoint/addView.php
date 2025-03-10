@@ -2,6 +2,17 @@
 require_once('/backend/src/config.php');
 require_once('/backend/nosql/saveView.php');
 
+// Ajouter les en-têtes CORS
+header("Access-Control-Allow-Origin: https://cozynest-59f6b70b330d.herokuapp.com");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
+// Gérer les requêtes OPTIONS
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    http_response_code(204);
+    exit();
+}
+
 // Indiquer que la réponse est au format JSON
 header('Content-Type: application/json');
 
@@ -28,3 +39,4 @@ if(isset($data['articleId'])){
     http_response_code(400);
     echo json_encode(['message' => 'ID de l’article manquant']);
 }
+?>
