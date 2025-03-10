@@ -1,8 +1,8 @@
 <?php
-function saveView($mongaDb, $articleId) {
-    $mangoDbName = 'cozynest';
+function saveView($mongoDb, $articleId) {
+    $mongoDbName = 'cozynest';
     $collection = 'viewCount';
-    $namespace = "$mangoDbName.$collection";
+    $namespace = "$mongoDbName.$collection";
 
     $filter = ['article_id' => (int) $articleId];
     $update = ['$inc' => ['views_count' => 1]];
@@ -12,7 +12,7 @@ function saveView($mongaDb, $articleId) {
     $bulk->update($filter, $update, $option);
 
     try {
-        $result = $mongaDb->executeBulkWrite($namespace, $bulk);
+        $result = $mongoDb->executeBulkWrite($namespace, $bulk);
         error_log("Vue mise à jour avec succès pour l'article ID : $articleId");
         return $result;
     } catch (MongoDB\Driver\Exception $e) {

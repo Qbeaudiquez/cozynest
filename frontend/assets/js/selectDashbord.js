@@ -2,7 +2,6 @@ const links = document.querySelectorAll(".dashbordLink")
 const displays = document.querySelectorAll(".display")
 const path = document.querySelector('.path')
 
-
 links.forEach(function(link){
     link.addEventListener("click", (event) => {
         links.forEach(link => link.classList.remove('active'))

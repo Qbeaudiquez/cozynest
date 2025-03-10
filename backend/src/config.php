@@ -26,18 +26,10 @@ if ($jawsdb_url) {
 
 // Connexion MongoDB avec MONGODB_URI
 $mongoUri = getenv("MONGODB_URI");
+$mongoUri = getenv("MONGODB_URI");
 if ($mongoUri) {
-    // Parse l'URL de la base de données MongoDB
-    $parsed_mongo_url = parse_url($mongoUri);
-
-    $mongoUser = $parsed_mongo_url['user'];
-    $mongoPassword = $parsed_mongo_url['pass'];
-    $mongoHost = $parsed_mongo_url['host'];
-    $mongoPort = $parsed_mongo_url['port'];
-    $mongoDbName = ltrim($parsed_mongo_url['path'], '/');
-
     try {
-        $dbMongoConnect = new MongoDB\Driver\Manager("mongodb://$mongoUser:$mongoPassword@$mongoHost:$mongoPort/$mongoDbName");
+        $dbMongoConnect = new MongoDB\Driver\Manager($mongoUri);
     } catch (MongoDB\Driver\Exception\Exception $e) {
         echo "Erreur de connexion MongoDB : " . $e->getMessage();
     }

@@ -15,7 +15,7 @@ foreach($articles as $article){
     $articleId = $article['id'];
     $commentCount = getCommentCount($db, $articleId, 'valid');
     $divArticle ++;
-    $viewsCount = getViewArticle($dbMangoConnect, $articleId);
+    $viewsCount = getViewArticle($dbMongoConnect, $articleId);
 
     echo "
     <article style='background-image:url(\"../../assets/img/backArticle/$articleId.png\");' class='cardContainer div$divArticle'>

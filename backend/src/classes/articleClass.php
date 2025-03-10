@@ -8,7 +8,7 @@ class Article{
     private $authorId;
     private $catId;
     private $db;
-    private $dbMangoConnect;
+    private $dbMongoConnect;
 
     public function __construct(
         $db,
@@ -17,7 +17,7 @@ class Article{
         $desc,
         $authorId,
         $catId,
-        $dbMangoConnect,
+        $dbMongoConnect,
     ){
         $this->db = $db;
         $this->title = $title;
@@ -25,7 +25,7 @@ class Article{
         $this->desc = $desc;
         $this->authorId = $authorId;
         $this->catId = $catId;
-        $this->dbMangoConnect = $dbMangoConnect;
+        $this->dbMongoConnect = $dbMongoConnect;
     }
 
 
@@ -59,7 +59,7 @@ class Article{
                 $bulkWrite = new MongoDB\Driver\BulkWrite();
                 $bulkWrite->insert($document);
 
-                $this->dbMangoConnect->executeBulkWrite("$mongoDb.$mongoCollection",$bulkWrite);
+                $this->dbMongoConnect->executeBulkWrite("$mongoDb.$mongoCollection",$bulkWrite);
                 
             } catch (MongoDB\Driver\Exception\Exception $e) {
                 echo "Error MongoDB : " . $e->getMessage();

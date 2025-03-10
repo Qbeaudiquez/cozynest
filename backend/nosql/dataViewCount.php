@@ -1,6 +1,6 @@
 <?php 
 
-function getViewArticle($dbMangoConnect, $articleId) {
+function getViewArticle($dbMongoConnect, $articleId) {
     $mongoCollection = 'viewCount';
     $mongoDb = 'cozynest';
     $filter = ['article_id' => (int)$articleId];
@@ -8,7 +8,7 @@ function getViewArticle($dbMangoConnect, $articleId) {
 
     try {
 
-        $cursor = $dbMangoConnect->executeQuery("$mongoDb.$mongoCollection", $query);
+        $cursor = $dbMongoConnect->executeQuery("$mongoDb.$mongoCollection", $query);
         
         $viewData = current($cursor->toArray());
 
@@ -27,7 +27,7 @@ function getViewArticle($dbMangoConnect, $articleId) {
     return $viewsCount;
 }
 
-function getTotalViews($dbMangoConnect) {
+function getTotalViews($dbMongoConnect) {
     $mongoCollection = 'viewCount';
     $mongoDb = 'cozynest';
     
@@ -47,7 +47,7 @@ function getTotalViews($dbMangoConnect) {
             'cursor' => new stdClass()  // Ajouter l'option 'cursor'
         ]);
         
-        $cursor = $dbMangoConnect->executeCommand($mongoDb, $command);
+        $cursor = $dbMongoConnect->executeCommand($mongoDb, $command);
 
         $result = current($cursor->toArray());
 

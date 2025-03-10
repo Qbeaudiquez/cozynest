@@ -1,7 +1,7 @@
 <?php
 $lastArticles = getArticlesByNb($db);
 $comments = getTableData($db, 'comments');
-$allCountViews = getTotalViews($dbMangoConnect);
+$allCountViews = getTotalViews($dbMongoConnect);
 $allCountComments = getCommentCount($db);
 $allCountArticles = getCountArticle($db);
 ?>
@@ -41,6 +41,12 @@ $allCountArticles = getCountArticle($db);
                 <h4 class="smallTitle">Articles les plus vue</h4>
             </div>
            <div class="feedContainer">
+           <?php foreach($lastArticles as $lastArticle):?>
+                <div class="articleContainer">
+                    <h5 class="articlesTitle"><?= $lastArticle['title'] ?></h5>
+                    <p class="creatAt"><?= $lastArticle['date'] ?></p>
+                </div>
+            <?php endforeach ?>
            </div> 
         </div>
     </div>

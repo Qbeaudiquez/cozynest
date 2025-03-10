@@ -1,6 +1,6 @@
 <?php
 
-function deleteArticle($db,$id,$dbMangoConnect){
+function deleteArticle($db,$id,$dbMongoConnect){
     $statement = $db->prepare('DELETE FROM articles WHERE id = :id');
     $statement->execute([':id' => $id]);
 
@@ -14,7 +14,7 @@ function deleteArticle($db,$id,$dbMangoConnect){
     $delete->delete($filter);
 
     try {
-        $result = $dbMangoConnect->executeBulkWrite("$database.$collection", $delete);
+        $result = $dbMongoConnect->executeBulkWrite("$database.$collection", $delete);
 
         if ($result->getDeletedCount() > 0) {
             echo "L'article avec l'ID $id a été supprimé de la collection $collection.";
@@ -34,6 +34,6 @@ function deleteArticle($db,$id,$dbMangoConnect){
 
 if(isset($_POST['deleteArticleId'])){
     $id = $_POST['deleteArticleId'];
-    echo deleteArticle($db,$id,$dbMangoConnect);
+    echo deleteArticle($db,$id,$dbMongoConnect);
     echo "done ! ";
 }

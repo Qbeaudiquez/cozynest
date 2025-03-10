@@ -27,6 +27,7 @@ body{
 
 .editForm .editContent{
     flex-grow: 1;
+    min-height: 300px;
 }
 
 .editForm .editBtn{

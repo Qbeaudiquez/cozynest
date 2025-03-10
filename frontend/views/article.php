@@ -16,14 +16,14 @@ if(isset($_GET['id'])){
     $article = getArticleById($db, $id);
     $commentCount = getCommentCount($db, $id,'valid');
     $comments = getComment($db, 1 , $id);
-    $viewsCount = getViewArticle($dbMangoConnect, $id);
+    $viewsCount = getViewArticle($dbMongoConnect, $id);
 }
     ?>
     <?php if($article):?>
         <article class='articleContainer' id='down'>
             <h2 class='articleTitle'><?=$article['title']?></h2>
             <div class='imgArticleContainer'>
-                <img src='/assets/img/backArticle/$id.png' alt='' class='imgArticle'>
+                <img src='../../assets/img/backArticle/<?=$id?>.png' alt='' class='imgArticle'>
             </div>
             <div class='descArticleContainer'>
                 <p class='descArticle'><?=$article['description']?></p>

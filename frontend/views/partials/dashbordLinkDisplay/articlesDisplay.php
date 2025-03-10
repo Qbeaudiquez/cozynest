@@ -18,7 +18,7 @@ $articles = getTableData($db,'articles')
             <?php endforeach?>
         </select>
         <input type="file" name="picture" id="picture" accept="image/*" required class="createInput">
-        <input type="submit" value="teste" class="createSubmit createInput">
+        <input type="submit" value="Créer" class="createSubmit createInput">
     </form>
     </div>
     

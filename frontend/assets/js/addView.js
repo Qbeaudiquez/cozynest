@@ -7,12 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const articleId = link.dataset.articleId;
             const targetUrl = link.href;
-
             
-            console.log("Article ID:", articleId);
-
-            
-            fetch('/backend/addView.php', {
+            fetch('https://cozynest-09845a7a31f4.herokuapp.com/backend/endpoint/addView.php', { 
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -46,4 +42,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-

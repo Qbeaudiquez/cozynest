@@ -17,7 +17,4 @@ if(isset($_POST['manageCommentId'])){
         ':id' => $commentId
     ]);
         echo "<script>redirectionPage('admin.php')</script>";
-}else{
-    echo "<div class'noCommentContainer'>Aucun commentaire a manager</div>";
 }
-

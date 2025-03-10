@@ -14,7 +14,7 @@ if(isset($data['articleId'])){
     $articleId = $data['articleId'];
 
     // Sauvegarder la vue
-    $result = saveView($dbMangoConnect, $articleId);
+    $result = saveView($dbMongoConnect, $articleId);
 
     if ($result) {
         http_response_code(200);
