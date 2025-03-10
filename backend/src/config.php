@@ -37,4 +37,3 @@ if ($mongoUri) {
 }
 
 ?>
-mongodb+srv://qbeaudiquezpro:Lmn-.jxTqim5b9.@cozynest.zu2gz.mongodb.net/?retryWrites=true&w=majority&appName=cozynest

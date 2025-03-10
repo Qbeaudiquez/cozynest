@@ -33,13 +33,11 @@ class Article{
     public function save($file){
 
             // Save in mysql
-            $currentDate = date("Y-m-d");
             $statement = $this->db->prepare("INSERT INTO articles (title, content, user_id, create_at, cat_id,description) VALUES (?, ?, ?, ?, ?,?)");
             $statement->execute([
                 $this->title,
                 $this->content,
                 $this->authorId,
-                $currentDate,
                 $this->catId,
                 $this->desc
             ]);

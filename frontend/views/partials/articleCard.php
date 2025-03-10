@@ -22,7 +22,7 @@ foreach($articles as $article){
     <a href='article.php?id=$articleId#down' class='incView' data-article-id='$articleId'>
     <div class='dateContainer'>
         <div class='datebutton'>
-            <p class='date'>{$article['date']}</p>
+            <p class='date'>{$article['create_at']}</p>
         </div>
     </div>
     <div class='aboutContainer'>

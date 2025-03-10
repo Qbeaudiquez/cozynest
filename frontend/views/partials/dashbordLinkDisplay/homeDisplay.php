@@ -24,7 +24,7 @@ $allCountArticles = getCountArticle($db);
            <?php foreach($lastArticles as $lastArticle):?>
                 <div class="articleContainer">
                     <h5 class="articlesTitle"><?= $lastArticle['title'] ?></h5>
-                    <p class="creatAt"><?= $lastArticle['date'] ?></p>
+                    <p class="creatAt"><?= $lastArticle['create_at'] ?></p>
                 </div>
             <?php endforeach ?>
            </div> 
@@ -44,7 +44,7 @@ $allCountArticles = getCountArticle($db);
            <?php foreach($lastArticles as $lastArticle):?>
                 <div class="articleContainer">
                     <h5 class="articlesTitle"><?= $lastArticle['title'] ?></h5>
-                    <p class="creatAt"><?= $lastArticle['date'] ?></p>
+                    <p class="creatAt"><?= $lastArticle['create_at'] ?></p>
                 </div>
             <?php endforeach ?>
            </div> 
