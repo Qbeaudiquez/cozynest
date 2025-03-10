@@ -26,7 +26,6 @@ if ($jawsdb_url) {
 
 // Connexion MongoDB avec MONGODB_URI
 $mongoUri = getenv("MONGODB_URI");
-$mongoUri = getenv("MONGODB_URI");
 if ($mongoUri) {
     try {
         $dbMongoConnect = new MongoDB\Driver\Manager($mongoUri);
@@ -38,3 +37,4 @@ if ($mongoUri) {
 }
 
 ?>
+mongodb+srv://qbeaudiquezpro:Lmn-.jxTqim5b9.@cozynest.zu2gz.mongodb.net/?retryWrites=true&w=majority&appName=cozynest

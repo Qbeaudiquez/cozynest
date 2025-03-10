@@ -34,7 +34,7 @@ class Article{
 
             // Save in mysql
             $currentDate = date("Y-m-d");
-            $statement = $this->db->prepare("INSERT INTO articles (title, content, user_id, date, cat_id,description) VALUES (?, ?, ?, ?, ?,?)");
+            $statement = $this->db->prepare("INSERT INTO articles (title, content, user_id, create_at, cat_id,description) VALUES (?, ?, ?, ?, ?,?)");
             $statement->execute([
                 $this->title,
                 $this->content,
