@@ -7,20 +7,20 @@ function getArticlesByNb($db, $type = null,$nbArticle = 100000, $category = null
         $query = "SELECT a.*, c.name AS category 
                   FROM articles a 
                   JOIN categories c ON a.cat_id = c.id 
-                  ORDER BY a.date DESC 
+                  ORDER BY a.create_at DESC 
                   LIMIT $nbArticle";
     } elseif ($type === 'category' && !empty($category)) {
         $query = "SELECT a.*, c.name AS category
                   FROM articles a
                   JOIN categories c ON a.cat_id = c.id 
                   WHERE c.name = :category 
-                  ORDER BY a.date DESC 
+                  ORDER BY a.create_at DESC 
                   LIMIT $nbArticle";
     }else {
         $query = "SELECT a.*, c.name AS category 
                   FROM articles a 
                   JOIN categories c ON a.cat_id = c.id 
-                  ORDER BY a.date DESC 
+                  ORDER BY a.create_at DESC 
                   LIMIT $nbArticle";
     }
 
@@ -46,7 +46,7 @@ function getArticleById($db, $id){
         FROM articles a 
         JOIN categories c ON a.cat_id = c.id 
         WHERE a.id = :id 
-        ORDER BY a.date DESC");
+        ORDER BY a.create_at DESC");
         $statement->bindParam(':id', $id, PDO::PARAM_INT);
         $statement->execute();
 
