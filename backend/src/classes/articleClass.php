@@ -33,7 +33,7 @@ class Article{
     public function save($file){
 
             // Save in mysql
-            $statement = $this->db->prepare("INSERT INTO articles (title, content, user_id, create_at, cat_id,description) VALUES (?, ?, ?, ?, ?,?)");
+            $statement = $this->db->prepare("INSERT INTO articles (title, content, user_id, cat_id,description) VALUES (?, ?, ?, ?,?)");
             $statement->execute([
                 $this->title,
                 $this->content,
