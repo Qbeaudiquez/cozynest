@@ -1,4 +1,5 @@
-<?php $categories = getTableData($db, 'categories') ?>
+<?php $categories = getTableData($db, 'categories') ;
+var_dump($categories) ?>
 
 <div class="settingDisplay display" id="setting">
    <div class="catContainer">
