@@ -33,7 +33,8 @@ class Article{
     public function save($file){
 
             // Save in mysql
-            $statement = $this->db->prepare("INSERT INTO articles (title, content, user_id, cat_id,description) VALUES (?, ?, ?, ?,?)");
+            try{
+                 $statement = $this->db->prepare("INSERT INTO articles (title, content, user_id, cat_id,description) VALUES (?, ?, ?, ?,?)");
             $statement->execute([
                 $this->title,
                 $this->content,
@@ -41,6 +42,10 @@ class Article{
                 $this->catId,
                 $this->desc
             ]);
+            }catch (PDOException $e) {
+                echo "Erreur de connexion MySQL : " . $e->getMessage();
+            }
+           
             
             // Save in MongoDb
             $articleId = (int) $this->db->lastInsertId();
